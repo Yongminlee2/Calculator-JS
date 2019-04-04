@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.8.0/math.js' type='text/javascript'></script>
     <script src="../assets/js/localStorage.js"></script>
+    <script src="../assets/js/Common.js"></script>
     <script src="../assets/js/init.js"></script>
 
     <script type="text/javascript" async
@@ -23,14 +24,6 @@
 
     <script type="text/javascript">
         
-        function InputResult(){
-            var valText = document.querySelector('#InputResult').value;
-            $('#result').text(valText);
-            var node = math.parse(valText);
-                        var latex = node.toTex({parenthesis: 'keep', implicit: 'hide'});
-                        var elem = MathJax.Hub.getAllJax('latex')[0];
-                        MathJax.Hub.Queue(['Text', elem, latex]);    
-        }
 
     </script>
 </head>
@@ -94,6 +87,9 @@
         <span class="key clear-key">CL</span>
         <span class="key eval-key">EV</span>
         <span class="key remove-key">←</span>
+        <span class="key function-key">abs</span>
+        <span class="key function-key">copy</span>
+        <span class="key function-key">paste</span>
         <div id="latex"></div>
     </div>
     <div class="save-results">

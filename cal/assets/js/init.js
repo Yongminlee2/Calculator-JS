@@ -1,3 +1,12 @@
+var CalCOPY = '';
+
+function initMath(displayValue){
+    var node = math.parse(displayValue);
+    var latex = node.toTex({parenthesis: 'keep', implicit: 'hide'});
+    var elem = MathJax.Hub.getAllJax('latex')[0];
+    MathJax.Hub.Queue(['Text', elem, latex]);
+}
+
 $(document).ready(function(){
     locallist();
     function keyPressD(e){
@@ -17,10 +26,7 @@ $(document).ready(function(){
                         displayValue = tokens[0];
                     }
                     $('#result').text(displayValue);                        
-                var node = math.parse(displayValue);
-                var latex = node.toTex({parenthesis: 'keep', implicit: 'hide'});
-                var elem = MathJax.Hub.getAllJax('latex')[0];
-                MathJax.Hub.Queue(['Text', elem, latex]);   
+                    initMath(displayValue)
                 }
                 catch (e)
                 {
@@ -30,7 +36,17 @@ $(document).ready(function(){
                         $('#result').text(e);
                     }
                 }               
-            } else {
+            }else if($(this).text() === 'copy'){
+                CalCOPY = $('#result').text();
+                copyToClipboard(CalCOPY);
+                alert(`'${CalCOPY}' 가 복사되었습니다.`);
+            }else if($(this).text() === 'paste'){
+
+                document.querySelector('#result').innerText += CalCOPY;
+                displayValue = document.querySelector('#result').innerText;
+                initMath(displayValue)
+
+            }else{
                 if($(this).text() == 'CL')
                 {
                     displayValue = '0';
@@ -46,11 +62,7 @@ $(document).ready(function(){
                     displayValue += $(this).text();
                     $('#result').text(displayValue);
                 }
-
-                var node = math.parse(displayValue);
-                var latex = node.toTex({parenthesis: 'keep', implicit: 'hide'});
-                var elem = MathJax.Hub.getAllJax('latex')[0];
-                MathJax.Hub.Queue(['Text', elem, latex]);                      
+                initMath(displayValue)                    
             }
 
             e.preventDefault()
