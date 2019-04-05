@@ -7,8 +7,10 @@ function initMath(displayValue){
     MathJax.Hub.Queue(['Text', elem, latex]);
 }
 
+
 $(document).ready(function(){
     locallist();
+    
     function keyPressD(e){
             if(displayValue == '0') displayValue = '';
 
@@ -37,9 +39,10 @@ $(document).ready(function(){
                     }
                 }               
             }else if($(this).text() === 'copy'){
-                CalCOPY = $('#result').text();
-                copyToClipboard(CalCOPY);
-                alert(`'${CalCOPY}' 가 복사되었습니다.`);
+                    CalCOPY = $('#result').text();
+                    copyToClipboard(CalCOPY);
+                    alert(CalCOPY +' 가 복사되었습니다.');
+
             }else if($(this).text() === 'paste'){
 
                 document.querySelector('#result').innerText += CalCOPY;
@@ -52,6 +55,7 @@ $(document).ready(function(){
                     displayValue = '0';
                     $('#result').text(displayValue);
                 }else if($(this).text() == '←') {
+                    displayValue = $('#result').text();
                     const DisSplit = displayValue.split('');
                     DisSplit.pop();
                     const DisJoin = DisSplit.join('');
@@ -105,7 +109,7 @@ $(document).ready(function(){
     $('#result').text(displayValue);
     $('#latex').html('$$' + math.parse(displayValue).toTex() + '$$');
 
-    $('.key').each(function(index, key){       
+    $('.key').each(function(index, key){
         $(this).click(keyPressD);
     })
 })

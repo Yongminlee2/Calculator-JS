@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/result.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.8.0/math.js' type='text/javascript'></script>
     <script src="../assets/js/localStorage.js"></script>
@@ -22,10 +21,6 @@
         });
     </script>
 
-    <script type="text/javascript">
-        
-
-    </script>
 </head>
 <body>
     <h1>
@@ -41,55 +36,75 @@
         <span class="key">2</span>
         <span class="key">3</span>
         <span class="key">4</span>
+        <div class="set">
+            <div class="set-text Lcompression" onclick="ShowFunction('Lcompression')">비교연산</div>
+            <div class="set-function" id="Lcompression">
+                <span class="key set-function_column"><</span>
+                <span class="key set-function_column">></span>
+                <span class="key set-function_column"><=</span>
+                <span class="key set-function_column">>=</span>
+                <span class="key set-function_column">!=</span>
+                <span class="key set-function_column">==</span>
+            </div>
+        </div>
         <span class="key">5</span>
         <span class="key">6</span>
         <span class="key">7</span>
         <span class="key">8</span>
         <span class="key">9</span>
+        <div class="set">
+            <div class="set-text LSpecialSymbol" onclick="ShowFunction('LSpecialSymbol')">특수기호</div>
+            <div class="set-function" id="LSpecialSymbol">
+                <span class="key set-function_column">(</span>
+                <span class="key set-function_column">)</span>
+                <span class="key set-function_column">[</span>
+                <span class="key set-function_column">]</span>
+                <span class="key set-function_column">.</span>
+                <span class="key set-function_column">,</span>
+                <span class="key set-function_column">:</span>
+                <span class="key set-function_column">;</span>
+                <span class="key set-function_column">=</span>
+            </div>
+        </div>
         <span class="key">+</span>
         <span class="key">-</span>
         <span class="key">*</span>
         <span class="key">/</span>
         <span class="key">%</span>
+        <div class="set">
+            <div class="set-text Lconstant" onclick="ShowFunction('Lconstant')">상수</div>
+            <div class="set-function" id="Lconstant">
+                <span class="key symbol-key set-function_column">i</span>
+                <span class="key symbol-key set-function_column">e</span>
+                <span class="key symbol-key set-function_column">pi</span>
+                <span class="key symbol-key set-function_column">w</span>
+                <span class="key symbol-key set-function_column">x</span>
+                <span class="key symbol-key set-function_column">y</span>
+                <span class="key symbol-key set-function_column">z</span>
+                <span class="key symbol-key set-function_column">f</span>
+                <span class="key symbol-key set-function_column">g</span>
+            </div>
+        </div>
         <span class="key">^</span>
-        <span class="key"><</span>
-        <span class="key">></span>
-        <span class="key"><=</span>
-        <span class="key">>=</span>
-        <span class="key">(</span>
-        <span class="key">)</span>
-        <span class="key">[</span>
-        <span class="key">]</span>
-        <span class="key">.</span>
-        <span class="key">,</span>
-        <span class="key">:</span>
-        <span class="key">;</span>
-        <span class="key">==</span>
-        <span class="key">!=</span>
-        <span class="key symbol-key">i</span>
-        <span class="key symbol-key">e</span>
-        <span class="key symbol-key">pi</span>
-        <span class="key symbol-key">w</span>
-        <span class="key symbol-key">x</span>
-        <span class="key symbol-key">y</span>
-        <span class="key symbol-key">z</span>
-        <span class="key symbol-key">f</span>
-        <span class="key symbol-key">g</span>
-        <span class="key">=</span>
-        <span class="key function-key">exp</span>
-        <span class="key function-key">log</span>
-        <span class="key function-key">sqrt</span>
-        <span class="key function-key">sin</span>
-        <span class="key function-key">cos</span>
-        <span class="key function-key">tan</span>
-        <span class="key function-key">cross</span>
-        <span class="key function-key">det</span>
+        <span class="key remove-key">←</span>
         <span class="key clear-key">CL</span>
         <span class="key eval-key">EV</span>
-        <span class="key remove-key">←</span>
-        <span class="key function-key">abs</span>
-        <span class="key function-key">copy</span>
-        <span class="key function-key">paste</span>
+        <div class="set">
+            <div class="set-text Lfunction" onclick="ShowFunction('Lfunction')">함수</div>
+            <div class="set-function" id="Lfunction">
+                <span class="key function-key set-function_column">exp</span>
+                <span class="key function-key set-function_column">log</span>
+                <span class="key function-key set-function_column">sqrt</span>
+                <span class="key function-key set-function_column">sin</span>
+                <span class="key function-key set-function_column">cos</span>
+                <span class="key function-key set-function_column">tan</span>
+                <span class="key function-key set-function_column">abs</span>
+            </div>
+        </div>
+        <span class="key function-key lastKey">cross</span>
+        <span class="key function-key lastKey">det</span>
+        <span class="key function-key copy">copy</span>
+        <span class="key function-key paste">paste</span>
         <div id="latex"></div>
     </div>
     <div class="save-results">

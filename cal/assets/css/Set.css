@@ -1,0 +1,104 @@
+.save-results{
+    margin: 50px;
+    position: relative;
+    background-color: brown;
+    width: 400px;
+    height: 300px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: scroll;
+}
+
+.set-function{
+    display:none;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    right: -160px;
+    flex-wrap : wrap;
+    background-color: gray;
+    padding: 10px;
+    border: 1px solid #333333;
+    border-radius: 20px;
+}
+
+
+
+.set{
+    width: 142px;
+    height: 25px;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 11px;
+}
+
+.set-text{
+    width: 142px;
+    height: 25px;
+    
+    background-color: #99ccff;
+    display: inline-flex;
+    margin: 3px 5px 8px 0px;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px 5px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #a1a1a1, 0 2px 5px rgba(0, 0, 0, .75);
+    font: bold 20px sans-serif;
+    position: absolute;
+}
+
+.set-text:active {
+    background-color: #a1a1a1;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#Lcompression {
+    top:-60px;    
+}
+#LSpecialSymbol{
+    top: 19px;
+}
+#Lfunction {
+    top:80px;    
+}
+#Lconstant{
+    right: -305px;
+    top: -17px;
+}
+
+.set-text{
+    /* transition: all 10s ease-in-out;
+    animation: rainbow 7s ease-in-out infinite; */
+}
+
+@keyframes  rainbow{
+    0%{	background-color:#6495ED;transform: rotateY(0deg);}
+    5%{	background-color:#6E9FED;}
+    10%{background-color:#78A9ED;}
+    15%{background-color:#82B3ED;}
+    20%{background-color:#8CBDED;}
+    25%{background-color:#96C7ED;}
+    30%{background-color:#A0D1F7;}
+    35%{background-color:#AADBFF;}
+    40%{background-color:#B4E5FF;}
+    45%{background-color:#BEEFFF;}
+    50%{background-color:#3DFF92; transform: rotateY(180deg);}
+    55%{background-color:#47FF9C;}
+    60%{background-color:#51FFA6;}
+    65%{background-color:#5BFFB0;}
+    70%{background-color:#65FFBA;}
+    75%{background-color:#6FFFC4;}
+    80%{background-color:#79FFCE;}
+    85%{background-color:#75FFCA;}
+    90%{background-color:#7AFFCF;}
+    95%{background-color:#7FFFD4;}
+    100%{background-color:#AAEBAA; transform: rotateY(0deg);}
+}
