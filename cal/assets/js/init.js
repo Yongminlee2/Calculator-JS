@@ -7,8 +7,8 @@ function initMath(displayValue){
     MathJax.Hub.Queue(['Text', elem, latex]);
 }
 
-
 $(document).ready(function(){
+    $("#result").attr("tabindex", -1).focus();
     locallist();
     
     function keyPressD(e){
@@ -62,7 +62,8 @@ $(document).ready(function(){
                     displayValue = DisJoin;
                     $('#result').text(displayValue);
                 }else
-                {                        
+                {              
+                    displayValue = document.querySelector('#result').innerText;          
                     displayValue += $(this).text();
                     $('#result').text(displayValue);
                 }
@@ -72,7 +73,7 @@ $(document).ready(function(){
             e.preventDefault()
         }
     
-    $(document).keypress(function (e) {
+    $('#result').keypress(function (e) {
         var charCode = e.which; //번호
         var key2 = String.fromCharCode(charCode);
         if(charCode != 13 && charCode != 8){
@@ -85,7 +86,7 @@ $(document).ready(function(){
 
     });
 
-    $(document).keydown(function (e) {
+    $('#result').keydown(function (e) {
         var charCode = e.which;
         console.log(charCode);
         if ( charCode === 8 ) {

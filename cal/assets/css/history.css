@@ -1,0 +1,17 @@
+.save-results{
+    margin: 50px;
+    position: absolute;
+    top: 50px;
+    left: 750px;
+    background-color: brown;
+    width: 400px;
+    height: 300px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: scroll;
+}
+
+.Lmatrix-number{
+width: 30px;
+}

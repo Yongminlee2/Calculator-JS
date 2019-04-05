@@ -116,6 +116,50 @@
         </div>
     </div>
 
+<div id="Lmatrix_create">
+    <span>몇 * 몇 행렬을 만드시겠습니까?</span>
+    <input type="text" id="Lmatrix_row" placeholder="가로">
+    <span>*</span>
+    <input type="text" id="Lmatrix_column" placeholder="세로">
+    <button onclick="Create_matrix()">행렬만들기</button>
+</div>
+<div id="Lmatrix_create-result"></div>
 </body>
+<script>
+    function Create_matrix(){
+        var row = document.querySelector('#Lmatrix_row').value;
+        var column = document.querySelector('#Lmatrix_column').value;
+        var INNERHTML = '';
+
+        INNERHTML += '<span>[</span>';
+        for(var i =0; i<column;i++){
+            
+            INNERHTML += '<div>';
+            INNERHTML += '<span>[</span>';
+            for(var j =0; j<row;j++){
+                INNERHTML += '<input type="text" class="Lmatrix-number" name="3" placeholder="입력">';
+                if(j+1!=row)INNERHTML += '<span>,</span>';
+            }
+            INNERHTML += '<span>]</span>';
+            if(i+1!=column)INNERHTML += '<span>,</span>';
+            INNERHTML += '</div>';
+        }
+        INNERHTML += '<span>]</span>';
+        document.querySelector('#Lmatrix_create-result').innerHTML= INNERHTML;
+    }
+
+    function Create_matrixtext(){
+        var divP = document.querySelector('#Lmatrix_create-result').children;
+        var TotalText = '';
+        for(var i=0; i<divP.length;i++){
+        if(divP[i].tagName.toLowerCase() == 'span'){
+            TotalText += divP[i].innerText;
+        } else if(divP[i].tagName.toLowerCase() == 'input'){
+            TotalText += divP[i].value;
+        }
+    }
+    return TotalText;
+    }
+</script>
 
 </html>

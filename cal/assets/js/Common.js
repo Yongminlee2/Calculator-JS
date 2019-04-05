@@ -10,12 +10,12 @@ function copyToClipboard(val) {
 function InputResult(){
     var valText = document.querySelector('#InputResult').value;
     var valTextDiv =  $('#result').text();
+    if(valTextDiv == 0){
+        valTextDiv = '';
+    }
     valText = valTextDiv +valText;
     $('#result').text(valText);
-    var node = math.parse(valText);
-                var latex = node.toTex({parenthesis: 'keep', implicit: 'hide'});
-                var elem = MathJax.Hub.getAllJax('latex')[0];
-                MathJax.Hub.Queue(['Text', elem, latex]);    
+    initMath(valText);
 }
 
 function ShowFunction(id){
