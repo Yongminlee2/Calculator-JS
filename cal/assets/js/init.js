@@ -13,6 +13,7 @@ $(document).ready(function(){
     
     function keyPressD(e){
             if(displayValue == '0') displayValue = '';
+            if(document.querySelector('#result').innerText == '0') document.querySelector('#result').innerText = '';
 
             if($(this).text() == 'EV')
             {
@@ -41,10 +42,9 @@ $(document).ready(function(){
             }else if($(this).text() === 'copy'){
                     CalCOPY = $('#result').text();
                     copyToClipboard(CalCOPY);
-                    alert(CalCOPY +' 가 복사되었습니다.');
 
             }else if($(this).text() === 'paste'){
-
+                if(document.querySelector('#result').innerText == '0') document.querySelector('#result').innerText ='';
                 document.querySelector('#result').innerText += CalCOPY;
                 displayValue = document.querySelector('#result').innerText;
                 initMath(displayValue)
@@ -73,6 +73,7 @@ $(document).ready(function(){
             e.preventDefault()
         }
     
+    //모든 키를 누를경우 아래 함수를 탄다
     $('#result').keypress(function (e) {
         var charCode = e.which; //번호
         var key2 = String.fromCharCode(charCode);
@@ -86,6 +87,7 @@ $(document).ready(function(){
 
     });
 
+    //백스페이스 , EV 를 누를경우  아래함수탄다
     $('#result').keydown(function (e) {
         var charCode = e.which;
         console.log(charCode);

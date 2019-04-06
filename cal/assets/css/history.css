@@ -3,15 +3,99 @@
     position: absolute;
     top: 50px;
     left: 750px;
-    background-color: brown;
+    background-color: gray;
     width: 400px;
-    height: 300px;
+    height: 322px;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 20px;
-    overflow: scroll;
+    display: none;
 }
+
 
 .Lmatrix-number{
 width: 30px;
+}
+.save-result-scroll{
+    overflow-y: auto;
+    height: 225px;
+    border: 1px solid #555555;
+    background-color: darkgrey;
+    padding: 5px;
+    border-radius: 5px;
+}
+#save-results_input{
+    bottom: 0px;
+    position: absolute;
+    border-radius: 5px;
+    width: 67%;
+    margin-bottom: 10px;
+    height: 20px;
+}
+
+#save-results_button{
+    height: 26px;
+    width: 80px;
+    border-radius: 5px;
+    background-color: papayawhip;
+    position: absolute;
+    right: 19px;
+    bottom: 9px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+#save-results_button:focus{
+    outline: none; 
+}
+
+.save-results_remove{
+    text-align: center;
+    background-color: chocolate;
+    border-bottom: 2px solid #8d1717;
+    border-right: 2px solid #8d1717;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px 0px;
+    cursor: pointer;
+}
+
+.button-shadow:active{
+    background-color: rgba(143, 35, 8, 0.856);
+    transform: translateY(4px);
+    border-bottom: 2px solid #666;
+    border-right: 2px solid #666;
+}
+
+.save-result{
+    position: relative;
+}
+.save-result_replay{
+    width: 60px;
+    position: absolute;
+    right: 58px;
+    height: 20px;
+    text-align: center;
+    top: 2px;
+    margin: 0px;
+}
+
+.save-result_remove2{
+    position: absolute;
+    right: 0px;
+    width: 45px;
+    height: 20px;
+    top: 2px;
+    margin: 0px;
+}
+
+.save-result{
+    border-bottom: 1px solid gray;
+    height: 30px;
+    padding-top: 6px;
+}
+.save-result_value{
+    font-size: 15px;
+    white-space: nowrap;
 }

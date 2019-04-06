@@ -1,0 +1,25 @@
+.Lmatrix {
+    margin: 0px;
+    position: absolute;
+    top: 428px;
+    left: 800px;
+    background-color: gray;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+    width: 401px;
+    height: 238px;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.inputMatrix{
+    width: 35px;
+    text-align: center;    
+}
+
+.Lmatrix_Line{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid black;
+}

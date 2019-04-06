@@ -24,18 +24,23 @@
 </head>
 <body>
     <h1>
-            Calculator Version 3
+            Calculator Version 4
     </h1>        
    
     <div id="calculator">
-        <input type="text" id="InputResult">
-        <input type="button" value="수식넣기" onclick="InputResult()">
         <div id="result"></div>
-        <span class="key">0</span>
-        <span class="key">1</span>
-        <span class="key">2</span>
-        <span class="key">3</span>
-        <span class="key">4</span>
+        <div>
+        <input type="text" id="InputResult" placeholder="계산기에 추가할 수식">
+        <input type="button" class="button-shadow" id="InputButton" value="수식넣기" onclick="InputResult()">
+        <span class="help">도움말</span>
+        <span class="key function-key copy">copy</span>
+        <span class="key function-key paste">paste</span>
+        </div>
+        <span class="key">9</span>
+        <span class="key">8</span>
+        <span class="key">7</span>
+        <span class="key remove-key">←</span>
+        <span class="key clear-key">CL</span>
         <div class="set">
             <div class="set-text Lcompression" onclick="ShowFunction('Lcompression')">비교연산</div>
             <div class="set-function" id="Lcompression">
@@ -47,11 +52,11 @@
                 <span class="key set-function_column">==</span>
             </div>
         </div>
+        <span class="key">4</span>
         <span class="key">5</span>
         <span class="key">6</span>
-        <span class="key">7</span>
-        <span class="key">8</span>
-        <span class="key">9</span>
+        <span class="key">+</span>
+        <span class="key">-</span>
         <div class="set">
             <div class="set-text LSpecialSymbol" onclick="ShowFunction('LSpecialSymbol')">특수기호</div>
             <div class="set-function" id="LSpecialSymbol">
@@ -66,11 +71,11 @@
                 <span class="key set-function_column">=</span>
             </div>
         </div>
-        <span class="key">+</span>
-        <span class="key">-</span>
+        <span class="key">1</span>
+        <span class="key">2</span>
+        <span class="key">3</span>
         <span class="key">*</span>
         <span class="key">/</span>
-        <span class="key">%</span>
         <div class="set">
             <div class="set-text Lconstant" onclick="ShowFunction('Lconstant')">상수</div>
             <div class="set-function" id="Lconstant">
@@ -84,11 +89,13 @@
                 <span class="key symbol-key set-function_column">f</span>
                 <span class="key symbol-key set-function_column">g</span>
             </div>
-        </div>
+        </div>        
+        <span class="key">0</span>
         <span class="key">^</span>
-        <span class="key remove-key">←</span>
-        <span class="key clear-key">CL</span>
+        <span class="key">%</span>
         <span class="key eval-key">EV</span>
+
+
         <div class="set">
             <div class="set-text Lfunction" onclick="ShowFunction('Lfunction')">함수</div>
             <div class="set-function" id="Lfunction">
@@ -101,64 +108,102 @@
                 <span class="key function-key set-function_column">abs</span>
             </div>
         </div>
-        <span class="key function-key lastKey">cross</span>
-        <span class="key function-key lastKey">det</span>
-        <span class="key function-key copy">copy</span>
-        <span class="key function-key paste">paste</span>
+        <div class="set">
+            <div class="set-text CrossDet" onclick="ShowFunction('CrossDet')">행백간소화</div>
+            <div class="set-function set-function2" id="CrossDet">
+                <span class="create-ma function-key lastKey set-function_column">행렬 만들기</span>
+                <span class="key function-key lastKey set-function_column">cross</span>
+                <span class="key function-key lastKey set-function_column">det</span>
+            </div>
+        </div>
+        <div class="set">
+            <div class="set-text LHistory" onclick="ShowFunction('LHistory')">히스토리</div>
+            <div class="set-function" id="LHistory">
+            </div>
+        </div>
         <div id="latex"></div>
     </div>
     <div class="save-results">
-        <div class="save-results_remove" onclick="localAllremove()">전체삭제</div>
-        <div class="save-result">
-            <span class="save-result_value">empty</span>
-            <span class="save-result_replay">재사용</span>
-            <span class="save-result_remove">삭제</span>
+        <div class="save-results_remove button-shadow" onclick="localAllremove()">전체삭제</div>
+        <div class="save-result-scroll">
+            <div class="save-result">
+                <span class="save-result_value">empty</span>
+                <span class="save-result_replay create-ma">재사용</span>
+                <span class="save-result_remove2 create-ma">삭제</span>
+            </div>
         </div>
+        <input type="text" name="" id="save-results_input"></input>
+        <input type="button" class="button-shadow" id="save-results_button" value="저장" onclick="historySave()"></input>
     </div>
-
-<div id="Lmatrix_create">
-    <span>몇 * 몇 행렬을 만드시겠습니까?</span>
-    <input type="text" id="Lmatrix_row" placeholder="가로">
-    <span>*</span>
-    <input type="text" id="Lmatrix_column" placeholder="세로">
-    <button onclick="Create_matrix()">행렬만들기</button>
+<div class="Lmatrix">
+    <div id="Lmatrix_create">
+        <span>몇 * 몇 행렬을 만드시겠습니까?</span>
+        <div></div>
+        <input type="text" class="inputMatrix" id="Lmatrix_row" placeholder="가로">
+        <span>*</span>
+        <input type="text" class="inputMatrix" id="Lmatrix_column" placeholder="세로">
+        <button onclick="Create_matrix()">표 그리기</button>
+        <div class="Lmatrix_Line"></div>
+    </div>
+    <div id="Lmatrix_create-result"></div>
 </div>
-<div id="Lmatrix_create-result"></div>
+<textarea id="test"></textarea>
 </body>
 <script>
     function Create_matrix(){
         var row = document.querySelector('#Lmatrix_row').value;
         var column = document.querySelector('#Lmatrix_column').value;
         var INNERHTML = '';
-
+        
+        INNERHTML += '<button onclick="Create_matrix_result()">행렬 만들기</button>';
+        INNERHTML += '<div></div>';
         INNERHTML += '<span>[</span>';
         for(var i =0; i<column;i++){
             
-            INNERHTML += '<div>';
             INNERHTML += '<span>[</span>';
             for(var j =0; j<row;j++){
                 INNERHTML += '<input type="text" class="Lmatrix-number" name="3" placeholder="입력">';
                 if(j+1!=row)INNERHTML += '<span>,</span>';
             }
             INNERHTML += '<span>]</span>';
-            if(i+1!=column)INNERHTML += '<span>,</span>';
-            INNERHTML += '</div>';
+            if(i+1!=column){
+                INNERHTML += '<span>,</span>';
+                INNERHTML += '<span style="display:block;"></span>';
+            }
         }
         INNERHTML += '<span>]</span>';
+
         document.querySelector('#Lmatrix_create-result').innerHTML= INNERHTML;
     }
-
+    function Create_matrix_result(){
+        var INNERHTML = '';
+        INNERHTML += '<button onclick="paste();">계산기삽입</button>';
+        INNERHTML += '<button onclick="copyToClipboard(Create_matrixtext());">복사하기</button>';
+        INNERHTML += '<div></div>';
+        INNERHTML += '<span id="matrix_result-text">'+Create_matrixtext()+'</span>';
+        document.querySelector('#Lmatrix_create-result').innerHTML= INNERHTML;
+    }
+    
     function Create_matrixtext(){
         var divP = document.querySelector('#Lmatrix_create-result').children;
         var TotalText = '';
         for(var i=0; i<divP.length;i++){
-        if(divP[i].tagName.toLowerCase() == 'span'){
-            TotalText += divP[i].innerText;
-        } else if(divP[i].tagName.toLowerCase() == 'input'){
-            TotalText += divP[i].value;
-        }
+            if(divP[i].tagName.toLowerCase() == 'span'){
+                TotalText += divP[i].innerText;
+            } else if(divP[i].tagName.toLowerCase() == 'input'){
+                TotalText += divP[i].value;
+            }
     }
+    
+    CalCOPY = TotalText;
     return TotalText;
+    }
+
+    function paste(){
+        if(document.querySelector('#result').innerText == '0') document.querySelector('#result').innerText ='';
+        document.querySelector('#result').innerText += document.querySelector('#matrix_result-text').innerText;
+        displayValue = document.querySelector('#result').innerText;
+        initMath(displayValue)
     }
 </script>
 

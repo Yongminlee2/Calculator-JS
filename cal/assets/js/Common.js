@@ -5,6 +5,7 @@ function copyToClipboard(val) {
     t.select();
     document.execCommand('copy');
     document.body.removeChild(t);
+    alert(val +'  내용이 클립보드에 저장되었습니다.');
 }
 
 function InputResult(){
@@ -19,12 +20,40 @@ function InputResult(){
 }
 
 function ShowFunction(id){
-    var ref = document.querySelector('#'+id).style.display;
-    if(ref == 'flex') {
-        document.querySelector('#'+id).style.display = 'none';
-        $('.'+id).css('animation','');
+    if(id=='LHistory'){
+        var save_R = document.querySelector('.save-results').style.display;
+        if(save_R=='block'){
+            document.querySelector('.save-results').style.display ='none';
+            $('.'+id).css({
+                'background-color': '',
+                'box-shadow': '',
+                'transform': ''
+            });
+        }else {
+            document.querySelector('.save-results').style.display ='block';
+            $('.'+id).css({
+                'background-color': '#6495ED',
+                'box-shadow': '0 5px #666',
+                'transform': 'translateY(4px)'
+            });
+        }
     }else {
-        document.querySelector('#'+id).style.display = 'flex';
-        $('.'+id).css('animation','rainbow 7s ease-in-out infinite');
-    };
+        var ref = document.querySelector('#'+id).style.display;
+        if(ref == 'flex') {
+            document.querySelector('#'+id).style.display = 'none';
+            $('.'+id).css({
+                'background-color': '',
+                'box-shadow': '',
+                'transform': ''
+            });
+        }else {
+            document.querySelector('#'+id).style.display = 'flex';
+            $('.'+id).css({
+                'background-color': '#6495ED',
+                'box-shadow': '0 5px #666',
+                'transform': 'translateY(4px)'
+            });
+            
+        };
+    }   
 }
