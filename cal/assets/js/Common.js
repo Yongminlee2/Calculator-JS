@@ -57,3 +57,105 @@ function ShowFunction(id){
         };
     }   
 }
+
+
+function Create_matrix(){
+    var row = document.querySelector('#Lmatrix_row').value;
+    var column = document.querySelector('#Lmatrix_column').value;
+    var INNERHTML = '';
+    
+    INNERHTML += '<button onclick="Create_matrix_result()">행렬 만들기</button>';
+    INNERHTML += '<div></div>';
+    INNERHTML += '<span>[</span>';
+    for(var i =0; i<column;i++){
+        
+        INNERHTML += '<span>[</span>';
+        for(var j =0; j<row;j++){
+            INNERHTML += '<input type="text" class="Lmatrix-number" name="3" placeholder="입력">';
+            if(j+1!=row)INNERHTML += '<span>,</span>';
+        }
+        INNERHTML += '<span>]</span>';
+        if(i+1!=column){
+            INNERHTML += '<span>,</span>';
+            INNERHTML += '<span style="display:block;"></span>';
+        }
+    }
+    INNERHTML += '<span>]</span>';
+
+    document.querySelector('#Lmatrix_create-result').innerHTML= INNERHTML;
+}
+function Create_matrix_result(){
+    var INNERHTML = '';
+    INNERHTML += '<button onclick="paste();">계산기삽입</button>';
+    INNERHTML += '<button onclick="copyToClipboard(Create_matrixtext());">복사하기</button>';
+    INNERHTML += '<div></div>';
+    INNERHTML += '<span id="matrix_result-text">'+Create_matrixtext()+'</span>';
+    document.querySelector('#Lmatrix_create-result').innerHTML= INNERHTML;
+}
+
+function Create_matrixtext(){
+    var divP = document.querySelector('#Lmatrix_create-result').children;
+    var TotalText = '';
+    for(var i=0; i<divP.length;i++){
+        if(divP[i].tagName.toLowerCase() == 'span'){
+            TotalText += divP[i].innerText;
+        } else if(divP[i].tagName.toLowerCase() == 'input'){
+            TotalText += divP[i].value;
+        }
+}
+
+CalCOPY = TotalText;
+return TotalText;
+}
+
+function paste(){
+    if(document.querySelector('#result').innerText == '0') document.querySelector('#result').innerText ='';
+    document.querySelector('#result').innerText += document.querySelector('#matrix_result-text').innerText;
+    displayValue = document.querySelector('#result').innerText;
+    initMath(displayValue)
+}
+
+
+function ShowMatrix(id){
+    var Lmatrix = document.querySelector('.Lmatrix');
+    if (Lmatrix.style.display == 'none'|| Lmatrix.style.display ==''){
+        Lmatrix.style.display = 'block';
+        PressMatrixStyle(id)
+    } else {
+        ShowmMatrixStyle(id)
+        Lmatrix.style.display = 'none';
+    }
+}
+
+
+function ShowmMatrixStyle(id){
+    $('#'+id).css({
+        'background-color': '',
+        'box-shadow': '',
+        'transform': ''
+    });
+}
+function PressMatrixStyle(id){
+    $('#'+id).css({
+        'background-color': '#a1a1a1',
+        'box-shadow': '0 5px #666',
+        'transform': 'translateY(4px)'
+    });
+}
+
+
+function helpPress(id){
+    if(HELP_TRUE){
+        HELP_TRUE =false;
+        ShowmMatrixStyle(id);
+    }else{
+        HELP_TRUE = true;
+        PressMatrixStyle(id);
+    }
+}
+
+function helpTEXT(key){
+
+    console.log(key);
+    $('#result').text(key);
+}

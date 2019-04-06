@@ -1,4 +1,5 @@
 var CalCOPY = '';
+var HELP_TRUE = false;
 
 function initMath(displayValue){
     var node = math.parse(displayValue);
@@ -12,6 +13,10 @@ $(document).ready(function(){
     locallist();
     
     function keyPressD(e){
+        if(HELP_TRUE){
+            var abcd = $(this).text();
+            helpTEXT(abcd);
+        }else{
             if(displayValue == '0') displayValue = '';
             if(document.querySelector('#result').innerText == '0') document.querySelector('#result').innerText = '';
 
@@ -72,6 +77,7 @@ $(document).ready(function(){
 
             e.preventDefault()
         }
+    }
     
     //모든 키를 누를경우 아래 함수를 탄다
     $('#result').keypress(function (e) {
@@ -90,7 +96,7 @@ $(document).ready(function(){
     //백스페이스 , EV 를 누를경우  아래함수탄다
     $('#result').keydown(function (e) {
         var charCode = e.which;
-        console.log(charCode);
+        //아스키 코드 알아내기 console.log(charCode);
         if ( charCode === 8 ) {
             $('.key').each(function(index, key) {
                 if(key.innerText == '←'){
