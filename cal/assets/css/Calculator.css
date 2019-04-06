@@ -130,6 +130,7 @@
   .copy{
     width: 80px;
     background-color: #ffcccc;
+    margin-left: 5px;
   }
 
   .paste{
@@ -138,9 +139,6 @@
       background-color: #ccff66;
   }
 
-  .LHistory{
-    margin-left: 58px;
-  }
 
   .create-ma{
     width: 50px;

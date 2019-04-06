@@ -33,6 +33,11 @@
         <input type="text" id="InputResult" placeholder="계산기에 추가할 수식">
         <input type="button" class="button-shadow" id="InputButton" value="수식넣기" onclick="InputResult()">
         <span class="help" id="helpF1" onclick="helpPress('helpF1')">도움말</span>
+        <div class="set2">
+            <div class="set-text LHistory" onclick="ShowFunction('LHistory')">히스토리</div>
+            <div class="set-function" id="LHistory">
+            </div>
+        </div>
         <span class="key function-key copy">copy</span>
         <span class="key function-key paste">paste</span>
         </div>
@@ -108,17 +113,12 @@
                 <span class="key function-key set-function_column">abs</span>
             </div>
         </div>
-        <div class="set">
+        <div class="set" style="float:right;">
             <div class="set-text CrossDet" onclick="ShowFunction('CrossDet')">행백간소화</div>
             <div class="set-function set-function2" id="CrossDet">
                 <span class="create-ma function-key lastKey set-function_column" id="ShowMatrix" onclick="ShowMatrix('ShowMatrix')">행렬 만들기</span>
                 <span class="key function-key lastKey set-function_column">cross</span>
                 <span class="key function-key lastKey set-function_column">det</span>
-            </div>
-        </div>
-        <div class="set">
-            <div class="set-text LHistory" onclick="ShowFunction('LHistory')">히스토리</div>
-            <div class="set-function" id="LHistory">
             </div>
         </div>
         <div id="latex"></div>

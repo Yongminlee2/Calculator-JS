@@ -60,8 +60,8 @@ function ShowFunction(id){
 
 
 function Create_matrix(){
-    var row = document.querySelector('#Lmatrix_row').value;
-    var column = document.querySelector('#Lmatrix_column').value;
+    var column = document.querySelector('#Lmatrix_row').value;
+    var row = document.querySelector('#Lmatrix_column').value;
     var INNERHTML = '';
     
     INNERHTML += '<button onclick="Create_matrix_result()">행렬 만들기</button>';

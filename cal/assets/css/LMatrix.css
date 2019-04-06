@@ -2,16 +2,22 @@
     margin: 0px;
     position: absolute;
     top: 428px;
-    left: 800px;
+    left: 627px;
     background-color: gray;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 20px;
     width: 401px;
     height: 238px;
+    border: 1px solid #333333;
     white-space: nowrap;
     overflow: auto;
     display: none;
+}
+
+
+.Lmatrix-number{
+    width: 30px;
 }
 
 .inputMatrix{

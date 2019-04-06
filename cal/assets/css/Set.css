@@ -15,7 +15,8 @@
     flex-direction: column;
     width: 71px;
     right: 0px;
-    left: -133px;
+    left: -330px;
+
 }
 
 .help{    
@@ -79,13 +80,18 @@
     top:80px;    
 }
 #Lconstant{
-    right: -305px;
-    top: -17px;
+    right: -160px;
+    top: 249px;
 }
 
 .set-text{
     /* transition: all 10s ease-in-out;
     animation: rainbow 7s ease-in-out infinite; */
+}
+
+.LHistory{
+    width: 80px;
+    font-size: 18px;
 }
 
 @keyframes  rainbow{
@@ -110,4 +116,15 @@
     90%{background-color:#7AFFCF;}
     95%{background-color:#7FFFD4;}
     100%{background-color:#AAEBAA; transform: rotateY(0deg);}
+}
+
+.set2{
+    width: 80px;
+    height: 25px;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 11px;
 }
