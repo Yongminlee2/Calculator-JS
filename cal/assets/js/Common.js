@@ -37,7 +37,29 @@ function ShowFunction(id){
                 'transform': 'translateY(4px)'
             });
         }
-    }else {
+    }else if(id=='CrossDet') {
+        var ref = document.querySelector('#'+id).style.display;
+        if(ref == 'flex') {
+            document.querySelector('#'+id).style.display = 'none';
+            $('.'+id).css({
+                'background-color': '',
+                'box-shadow': '',
+                'transform': ''
+            });
+            ShowmMatrixStyle('ShowMatrix');
+            var Lmatrix = document.querySelector('.Lmatrix');
+                Lmatrix.style.display = 'none';
+
+        }else {
+            document.querySelector('#'+id).style.display = 'flex';
+            $('.'+id).css({
+                'background-color': '#6495ED',
+                'box-shadow': '0 5px #666',
+                'transform': 'translateY(4px)'
+            });
+            
+        };
+    }   else {
         var ref = document.querySelector('#'+id).style.display;
         if(ref == 'flex') {
             document.querySelector('#'+id).style.display = 'none';
@@ -146,6 +168,7 @@ function PressMatrixStyle(id){
 
 function helpPress(id){
     if(HELP_TRUE){
+        $('#result').text('0');
         HELP_TRUE =false;
         ShowmMatrixStyle(id);
         $('#result').css({
@@ -153,6 +176,7 @@ function helpPress(id){
             'font-size' : '20px'
         })
     }else{
+        $('#result').text('도움말시작');
         HELP_TRUE = true;
         PressMatrixStyle(id);
         $('#result').css({
